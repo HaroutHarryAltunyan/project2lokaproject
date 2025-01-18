@@ -1,0 +1,43 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img 
+        src="/images/Screenshot_20241020_021539_Instagram copy.jpg" 
+        alt="site logo" 
+        style="max-height: 70px"
+      >
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="burger">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">Home</a>
+      <a class="navbar-item" href="/documentation">Documentation</a>
+      <a class="navbar-item" href="/resources">Resources</a>
+      <a class="navbar-item" href="/petition">Petition</a>
+      <a class="navbar-item" href="/events">Events</a>
+      <a class="navbar-item" href="/volunteer">Volunteer</a>
+      <a class="navbar-item" href="/donate">Donate</a>
+      <a class="navbar-item" href="/contact">Contact</a>
+    </div>
+
+    <div class="navbar-end">
+      {{#if logged_in}}
+        <div class="navbar-item">
+          <button id="logout" class="button is-light">Log Out</button>
+        </div>
+      {{else}}
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light" href="/login"><strong>Log in</strong></a>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</nav>

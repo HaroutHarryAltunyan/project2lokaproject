@@ -1,4 +1,34 @@
-<div class="text-center">
+<div class="content">
+  <h2>{{title}}</h2>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>{{content}}</p>
+</div>
+
+{{#if comments.length}}
+  <div class="mt-4">
+    <h3>Comments:</h3>
+    {{#each comments}}
+      <article class="message">
+        <div class="message-body">
+          <strong>{{this.user.name}}</strong> ({{format_date this.date_created}}):
+          <br>
+          {{this.content}}
+        </div>
+      </article>
+    {{/each}}
+  </div>
+{{/if}}
+
+<!-- Add comment form -->
+<div class="field">
+  <label class="label">Add a Comment</label>
+  <div class="control">
+    <input id="comment-content" class="input" type="text" placeholder="Your comment here">
+  </div>
+</div>
+<button value="{{id}}" id="commenter" class="button is-primary mt-2">Submit Comment</button>
+
+{{!-- <div class="text-center">
   <h2>{{title}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{content}}</p>
@@ -23,4 +53,4 @@
   </p>
 </div>
 
-<script src="/js/comment.js"></script>
+<script src="/js/comment.js"></script> --}}

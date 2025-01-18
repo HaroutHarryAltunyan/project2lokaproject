@@ -7,9 +7,9 @@ Blog.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     title: {
       type: DataTypes.STRING,
@@ -21,8 +21,8 @@ Blog.init(
     },
     date_created: {
       type: DataTypes.DATE,
-      allowNull: false,
       defaultValue: DataTypes.NOW,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -34,10 +34,10 @@ Blog.init(
   },
   {
     sequelize,
-    timestamps: false,
+    modelName: 'blog',
     freezeTableName: true,
     underscored: true,
-    modelName: 'blog',
+    timestamps: false,
   }
 );
 

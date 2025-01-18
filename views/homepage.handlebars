@@ -1,4 +1,17 @@
-<!-- Loop over each object in the blog array -->
+<h1 class="title">Welcome to LOKA</h1>
+<!-- Loop over blogs -->
+{{#each blogs}}
+  <div class="box mb-4">
+    <h2>
+      {{{get_emoji}}}
+      <a href="/blog/{{this.id}}">{{this.title}}</a>
+    </h2>
+    <p>By {{this.user.name}} on {{format_date this.date_created}}</p>
+    <p>{{this.content}}</p>
+  </div>
+{{/each}}
+
+{{!-- <!-- Loop over each object in the blog array -->
 {{#each blogs as |blog| }}
 <div class="row mb-4 blog">
   <div class="col-md-5">
@@ -16,4 +29,4 @@
     </p>
   </div>
 </div>
-{{/each}}
+{{/each}} --}}

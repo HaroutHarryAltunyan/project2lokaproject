@@ -1,61 +1,53 @@
-const path = require('path');
 const express = require('express');
+const path = require('path');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+require('dotenv').config();
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const sequelize = require('./config/connection');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Initialize Express App
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Handlebars.js: Template engine with custom helpers
+// Handlebars setup
 const hbs = exphbs.create({ helpers });
-
-// Configure session with Sequelize storage
-const sess = {
-  secret: process.env.SESSION_SECRET || 'Super secret secret',
-  cookie: {
-    maxAge: 300000, // 5 minutes
-    httpOnly: true, // Prevent client-side JavaScript from accessing cookies
-    secure: process.env.NODE_ENV === 'production', // Set secure cookies in production
-    sameSite: 'strict', // Protect against CSRF
-  },
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
-};
-
-app.use(session(sess));
-
-// Set Handlebars.js as the template engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 
-// Middleware for parsing incoming requests
+// Session configuration
+const sess = {
+    secret: process.env.SESSION_SECRET || 'SuperSecretKey',
+    cookie: { maxAge: 86400000, httpOnly: true, secure: false, sameSite: 'strict' },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({ db: sequelize }),
+};
+app.use(session(sess));
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Serve static assets from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// API and View routes
+// Routes
 app.use(routes);
 
-// Catch-all for handling 404 errors
+// 404 handler
 app.use((req, res) => {
-  res.status(404).render('404', { layout: false });
+    res.status(404).render('404');
 });
 
-// Start the server and connect to the database
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-  });
-}).catch((err) => {
-  console.error('Failed to sync database:', err);
+// Error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).render('error', { message: 'Internal Server Error' });
 });
+
+// Start server
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+}).catch(err => console.error('Database sync failed:', err));

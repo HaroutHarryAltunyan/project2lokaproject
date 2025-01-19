@@ -12,9 +12,18 @@
   
   <!-- Navbar -->
   <nav class="navbar" role="navigation" aria-label="main navigation">
+     <!-- logo/brand -->
     <div class="navbar-brand">
       <a class="navbar-item" href="{{logoLink}}">
         <img src="{{logoSrc}}" alt="{{logoAlt}}" style="max-height: 70px;" class="py-2 px-2">
+      </a>
+   
+
+       <!-- Burger menu -->
+      <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
       </a>
     </div>
 
@@ -23,6 +32,17 @@
         {{#each navbarItems}}
           <a href="{{this.href}}" class="navbar-item">{{this.name}}</a>
         {{/each}}
+      </div>
+    </div>
+
+    <div class="navbar-item has-dropdown is-hoverable" id="moreDropdownContainer">
+      <a class="navbar-link" id="moreDropdown">More</a>
+      <div class="navbar-dropdown">
+        {{#each moreDropdownItems}}
+          <a class="navbar-item">{{this}}</a>
+        {{/each}}
+        <hr class="navbar-divider">
+        <a class="navbar-item">Report an issue</a>
       </div>
     </div>
 

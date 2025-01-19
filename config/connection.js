@@ -254,7 +254,7 @@ console.log('Sequelize instance exported.');
 // break
 
 
-
+//these are from render-deploy 
 
 
 

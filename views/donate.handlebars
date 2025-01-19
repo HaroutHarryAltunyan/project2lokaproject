@@ -34,6 +34,17 @@
         {{/each}}
       </div>
     </div>
+
+    <div class="navbar-item has-dropdown is-hoverable" id="moreDropdownContainer">
+      <a class="navbar-link" id="moreDropdown">More</a>
+      <div class="navbar-dropdown">
+        {{#each moreDropdownItems}}
+          <a class="navbar-item">{{this}}</a>
+        {{/each}}
+        <hr class="navbar-divider">
+        <a class="navbar-item">Report an issue</a>
+      </div>
+    </div> 
       
     <div class="navbar-end">
       <div class="navbar-item">

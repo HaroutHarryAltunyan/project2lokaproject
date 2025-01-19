@@ -1,3 +1,19 @@
+// const router = require('express').Router();
+// const userRoutes = require('./userRoutes');
+// const projectRoutes = require('./projectRoutes');
+
+// router.use('/users', userRoutes);
+// router.use('/projects', projectRoutes);
+
+// module.exports = router;
+
+
+
+//THIS IS FOR THE PROJECT !!!!!!!
+
+
+
+
 const router = require('express').Router();
 console.log('Router initialized.');
 
@@ -15,6 +31,15 @@ console.log('Blog routes mounted at /blogs.');
 
 module.exports = router;
 console.log('Router exported.');
+
+
+
+
+// break
+
+
+
+
 
 // const router = require('express').Router();
 // const userRoutes = require('./userRoutes');

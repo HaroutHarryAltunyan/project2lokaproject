@@ -1,8 +1,72 @@
-<h1 class="title">Contact</h1>
-<p class="subtitle">The Official <strong>LOKA</strong> Website</p>
-<!-- Unique content for each page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+  
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- logo/brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./home.html">
+        <img src="{{logoSrc}}" alt="{{logoAlt}}" style="max-height: 70px;" class="py-2 px-2">
+      </a>
 
-{{!-- <!DOCTYPE html>
+      <!-- Burger menu -->
+      <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div> 
+
+    <!-- Navbar menu -->
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        {{#each navbarItems}}
+          <a href="{{this.href}}" class="navbar-item">{{this.name}}</a>
+        {{/each}}
+      </div>
+    </div>
+      
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-light"><strong>Sign up</strong></a>
+          <a class="button is-light">Log in</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Insert image below the navbar -->
+  <img src="{{bannerImageSrc}}" alt="{{bannerImageAlt}}" style="max-width: 100%; height: auto;">
+
+  <!-- Main content -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">{{mainTitle}}</h1>
+      <p class="subtitle">{{subtitle}}</p>
+
+      <!-- Insert another image in the content section -->
+      <img src="{{contentImageSrc}}" alt="{{contentImageAlt}}" style="max-width: 100%; height: auto;">
+    </div>
+  </section>
+
+  <script src="./assets/js/script.js"></script>
+  </body>
+</html>
+
+{{!-- {{!-- <h1 class="title">Contact</h1>
+<p class="subtitle">The Official <strong>LOKA</strong> Website</p>
+<!-- Unique content for each page --> --}}
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -27,7 +91,7 @@
         <span></span>
         <span></span>
       </a>
-    </div> 
+    </div>  --}}
 
     {{!-- <!-- Navbar menu (which should be toggled in mobile mode) -->
     <div id="navbarBasicExample" class="navbar-menu">
@@ -51,7 +115,7 @@
         </div>
       </div>
     </div>
-  </nav> --}}
+  {{!-- </nav> --}}
 
   <!-- Insert image below the navbar -->
   <img src="./images /Screenshot 2024-10-20 at 2.39.47 AM.png" alt="A banner image" style="max-width: 100%; height: auto;">
@@ -69,4 +133,4 @@
 
   <script src="../public/js/scriptloka.js"></script>
   </body>
-</html> --}}
+</html>  --}}

@@ -1,5 +1,63 @@
-<h1 class="title">Contact</h1>
-<p class="subtitle">The Official <strong>LOKA</strong> Website</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="../public/css/styleloka.css">
+  </head>
+  <body>
+  
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- logo/brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{logoLink}}">
+        <img src="{{logoSrc}}" alt="{{logoAlt}}" style="max-height: 70px;" class="py-2 px-2">
+      </a>
+
+      <!-- Burger menu -->
+      <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        {{#each navbarItems}}
+          <a href="{{this.href}}" class="navbar-item">{{this.name}}</a>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-light"><strong>Sign up</strong></a>
+          <a class="button is-light">Log in</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">{{mainTitle}}</h1>
+      <p class="subtitle">{{subtitle}}</p>
+    </div>
+  </section>
+
+  <script src="../public/js/scriptloka.js"></script>
+  </body>
+</html>
+
+
+{{!-- <h1 class="title">Contact</h1>
+<p class="subtitle">The Official <strong>LOKA</strong> Website</p> --}}
 <!-- Unique content for each page -->
 
 {{!-- <!DOCTYPE html>

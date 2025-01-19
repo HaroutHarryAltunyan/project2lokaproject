@@ -1,6 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    {{!-- Navbar --}}
+    {{> navbar}} <!-- Includes the navbar partial -->
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./game/game.html">
+          <img src="./images/Screenshot_20241020_021539_Instagram copy.jpg" alt="site logo" style="max-height: 70px" class="py-2 px-2">
+        </a>
+        <a class="navbar-burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          {{#each navbarItems}}
+            <a href="{{href}}" class="navbar-item">{{name}}</a>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light"><strong>Sign up</strong></a>
+            <a class="button is-light">Log in</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {{!-- Main Content --}}
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Leave Our Kids Alone</h1>
+        <p class="subtitle">The Official <strong>LOKA</strong>! website</p>
+      </div>
+    </section>
+
+    {{!-- Dynamic Content --}}
+    {{{body}}}
+
+    <script src="/js/scriptloka.js"></script>
+  </body>
+</html>
+
+
+
+{{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leave Our Kids Alone!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="../../public/css/style.css">     
+  </head>
+  <body>
+
+      <!-- Navbar -->
+  {{> navbar}} <!-- Includes the navbar partial -->
+  
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- logo/brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./game/game.html">
+        <img src="./images /Screenshot_20241020_021539_Instagram copy.jpg" alt="site logo" style="max-height: 70px" class="py-2 px-2">
+      </a>
+
+      <!-- Burger menu -->
+      <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div> 
+
+    <!-- Navbar menu (which should be toggled in mobile mode) -->
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="./home.html" class="navbar-item">Home</a>
+        <a href="./documentation.html" class="navbar-item">Documentation</a>
+        <a href="./resources.html" class="navbar-item">Resources</a>
+        <a href="./petition.html" class="navbar-item">Petition</a>
+        <a href="./events.html" class="navbar-item">Events</a>
+        <a href="./volunteer.html" class="navbar-item">Volunteer</a>
+        <a href="./donate.html" class="navbar-item">Donate</a>
+        <a href="./contact.html" class="navbar-item">Contact</a>
+      </div>
+    </div>
+    
+    <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light"><strong>Sign up</strong></a>
+            <a class="button is-light">Log in</a>
+          </div>
+        </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Leave Our Kids Alone</h1>
+      <p class="subtitle">The Official <strong>LOKA</strong>! website</p>
+    </div>
+  </section>
+
+  <script src="../../public/js/scriptloka.js"></script> script.js
+  </body>
+</html>
+
+    
+    </h1>
+    {{{body}}}
+</body>
+</html>
+ --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <title>{{title}} | Leave Our Kids Alone!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,14 +186,95 @@
     </section>
 
     <!-- Scripts -->
-    <script src="/js/scriptloka.js"></script>
+    <script src="../../public/js/scriptloka.js"></script>
     <!-- Only load these where needed, or keep them site-wide if that’s simpler -->
-    <script src="/js/login.js"></script>
-    <script src="/js/logout.js"></script>
-    <script src="/js/profile.js"></script>
-    <script src="/js/comments.js"></script>
+    <script src="../../public/js/login.js"></script>
+    <script src="../../public/js/logout.js"></script>
+    <script src="../../public/js/profile.js"></script>
+    <script src="../../public/js/comment.js"></script>
+  </body>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leave Our Kids Alone!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
+  </head>
+  <body>
+  
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- logo/brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./game/game.html">
+        <img src="./images /Screenshot_20241020_021539_Instagram copy.jpg" alt="site logo" style="max-height: 70px" class="py-2 px-2">
+      </a>
+
+      <!-- Burger menu -->
+      <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div> 
+
+    <!-- Navbar menu (which should be toggled in mobile mode) -->
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="./home.html" class="navbar-item">Home</a>
+        <a href="./documentation.html" class="navbar-item">Documentation</a>
+        <a href="./resources.html" class="navbar-item">Resources</a>
+        <a href="./petition.html" class="navbar-item">Petition</a>
+        <a href="./events.html" class="navbar-item">Events</a>
+        <a href="./volunteer.html" class="navbar-item">Volunteer</a>
+        <a href="./donate.html" class="navbar-item">Donate</a>
+        <a href="./contact.html" class="navbar-item">Contact</a>
+      </div>
+    </div>
+    
+    <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light"><strong>Sign up</strong></a>
+            <a class="button is-light">Log in</a>
+          </div>
+        </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Leave Our Kids Alone</h1>
+      <p class="subtitle">The Official <strong>LOKA</strong>! website</p>
+    </div>
+  </section>
+
+  <script src="../../public/js/scriptloka.js"></script>
   </body>
 </html>
+
+    
+    </h1>
+    {{{body}}}
+</body>
+</html> --}}
+
+
 
 
 

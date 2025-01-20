@@ -1,4 +1,53 @@
+<!-- Blog content -->
+<div class="content mt-5">
+  <h2 class="title is-4">{{blogTitle}}</h2>
+  <p class="has-text-grey">
+    Created by <strong>{{user.name}}</strong> on {{format_date date_created}}
+  </p>
+  <p>{{content}}</p>
+</div>
 
+<!-- Comments Section -->
+{{#if comments.length}}
+  <div class="comments mt-5">
+    <h3 class="title is-5">Comments:</h3>
+    {{#each comments}}
+      <article class="message is-info">
+        <div class="message-body">
+          <strong>{{this.user.name}}</strong> ({{format_date this.date_created}}):
+          <br>
+          {{this.content}}
+        </div>
+      </article>
+    {{/each}}
+  </div>
+{{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- 
 
   <!-- Main content -->
   <section class="section">
@@ -37,7 +86,32 @@
       <input id="comment-content" class="input" type="text" placeholder="Your comment here">
     </div>
   </div>
-  <button value="{{id}}" id="commenter" class="button is-primary mt-2">Submit Comment</button>
+  <button value="{{id}}" id="commenter" class="button is-primary mt-2">Submit Comment</button> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -157,10 +231,10 @@
 
 
 
-
+{{!-- 
 
 <h1 class="title">Contact</h1>
-<p class="subtitle">The Official <strong>LOKA</strong> Website</p>
+<p class="subtitle">The Official <strong>LOKA</strong> Website</p> --}}
 
 
 

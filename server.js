@@ -1,97 +1,213 @@
-// --------------------------------------------this code had issues with error handling 
-// 
-// 
-// 
-// const express = require('express');
+// // //Dependencies and Initial Setup :
 // const path = require('path');
+// const express = require('express');
 // const session = require('express-session');
 // const exphbs = require('express-handlebars');
-// require('dotenv').config();
+// const routes = require('./controllers');
+// // // Imports application routes.
+// const helpers = require('./utils/helpers');
 
-// console.log('Dependencies loaded successfully.');
+// // console.log('Dependencies loaded successfully.');
+// // // Logs a message to indicate successful loading of dependencies.
+
+// // require('dotenv').config(); 
+// // //Loads environment variables from a .env file into process.env.
+
+// const sequelize = require('./config/connection');
+// // // Imports the Sequelize database connection.
 
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const sequelize = require('./config/connection');
-// const routes = require('./controllers');
-// const helpers = require('./utils/helpers');
+// // // Configures Sequelize as a session store for express-session.
 
 // const app = express();
 // const PORT = process.env.PORT || 3001;
 
-// console.log(`Application initialized. PORT set to ${PORT}`);
-
-// // Handlebars setup
+// // Set up Handlebars.js engine with custom helpers
 // const hbs = exphbs.create({ helpers });
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
-// app.set('views', path.join(__dirname, 'views'));
-// console.log('Handlebars setup complete.');
 
-// // Session configuration
 // const sess = {
-//     secret: process.env.SESSION_SECRET || 'SuperSecretKey',
-//     cookie: { maxAge: 86400000, httpOnly: true, secure: false, sameSite: 'strict' },
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({ db: sequelize }),
+//   secret: 'Super secret secret',
+//   cookie: {
+//     maxAge: 300000,
+//     httpOnly: true,
+//     secure: false,
+//     sameSite: 'strict',
+//   },
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize
+//   })
 // };
-// console.log('Session configuration set:', sess);
+
 // app.use(session(sess));
 
-// // Middleware
+// // Inform Express.js on which template engine to use
+// app.engine('handlebars', hbs.engine);
+// app.set('view engine', 'handlebars');
+
 // app.use(express.json());
-// console.log('JSON middleware added.');
 // app.use(express.urlencoded({ extended: true }));
-// console.log('URL-encoded middleware added.');
 // app.use(express.static(path.join(__dirname, 'public')));
-// console.log('Static middleware added with path:', path.join(__dirname, 'public'));
 
-// // Routes
 // app.use(routes);
-// console.log('Routes added.');
 
-// // 404 handler
-// app.use((req, res) => {
-//     console.log(`404 error for URL: ${req.url}`);
-//     res.status(404).render('404');
-// });
-
-// // Error handler
-// app.use((err, req, res, next) => {
-//     const status = err.status || 500;
-//     const message = err.message || 'Internal Server Error';
-//     console.error(`Error occurred: ${message}`);
-//     console.error(err.stack);
-//     res.status(status).render('error', { status, message });
-// });
-
-// // Start server
 // sequelize.sync({ force: false }).then(() => {
-//     console.log('Database synced successfully.');
-//     app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
-// }).catch(err => {
-//     console.error('Database sync failed:', err);
+//   app.listen(PORT, () => console.log('Now listening'));
 // });
 
 
 
+// this code doesnt let homepage navbar work 
+// Error: Failed to lookup view "404" in views directory "/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/views"
+//     at Function.render (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/application.js:597:17)
+//     at ServerResponse.render (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/response.js:1049:7)
+//     at /Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/controllers/index.js:19:19
+//     at Layer.handle [as handle_request] (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/layer.js:95:5)
+//     at trim_prefix (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/index.js:328:13)
+//     at /Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/index.js:286:9
+//     at Function.process_params (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/index.js:346:12)
+//     at next (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/index.js:280:10)
+//     at /Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/index.js:646:15
+//     at next (/Users/haroutaltunyan/Desktop/bootcamp2024/project2lokaproject/project2lokaproject/node_modules/express/lib/router/index.js:265:14)
 
 
-//-----------------------------------------------------------------------------------------this is updated code 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // --------------------------------------------this code had issues with error handling 
+// // 
+// // 
+// // 
+// // const express = require('express'); !
+
+// // const path = require('path'); !
+
+// // const session = require('express-session'); !
+
+// // const exphbs = require('express-handlebars'); !
+
+// // require('dotenv').config(); 
+
+// // console.log('Dependencies loaded successfully.');
+
+// // const SequelizeStore = require('connect-session-sequelize')(session.Store); !
+// // const sequelize = require('./config/connection'); !
+// // const routes = require('./controllers'); !
+// // const helpers = require('./utils/helpers'); !
+
+// // const app = express(); !
+// // const PORT = process.env.PORT || 3001;!
+
+// // console.log(`Application initialized. PORT set to ${PORT}`);
+
+// // // Handlebars setup
+// // const hbs = exphbs.create({ helpers });
+// // app.engine('handlebars', hbs.engine);
+// // app.set('view engine', 'handlebars');
+// // app.set('views', path.join(__dirname, 'views'));
+// // console.log('Handlebars setup complete.');
+
+// // // Session configuration
+// // const sess = {
+// //     secret: process.env.SESSION_SECRET || 'SuperSecretKey',
+// //     cookie: { maxAge: 86400000, httpOnly: true, secure: false, sameSite: 'strict' },
+// //     resave: false,
+// //     saveUninitialized: true,
+// //     store: new SequelizeStore({ db: sequelize }),
+// // };
+// // console.log('Session configuration set:', sess);
+// // app.use(session(sess));
+
+// // // Middleware
+// // app.use(express.json());
+// // console.log('JSON middleware added.');
+// // app.use(express.urlencoded({ extended: true }));
+// // console.log('URL-encoded middleware added.');
+// // app.use(express.static(path.join(__dirname, 'public')));
+// // console.log('Static middleware added with path:', path.join(__dirname, 'public'));
+
+// // // Routes
+// // app.use(routes);
+// // console.log('Routes added.');
+
+// // // 404 handler
+// // app.use((req, res) => {
+// //     console.log(`404 error for URL: ${req.url}`);
+// //     res.status(404).render('404');
+// // });
+
+// // // Error handler
+// // app.use((err, req, res, next) => {
+// //     const status = err.status || 500;
+// //     const message = err.message || 'Internal Server Error';
+// //     console.error(`Error occurred: ${message}`);
+// //     console.error(err.stack);
+// //     res.status(status).render('error', { status, message });
+// // });
+
+// // // Start server
+// // sequelize.sync({ force: false }).then(() => {
+// //     console.log('Database synced successfully.');
+// //     app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+// // }).catch(err => {
+// //     console.error('Database sync failed:', err);
+// // });
+
+
+
+
+
+// //-----------------------------------------------------------------------------------------------------------------------------------------------------this one below is updated code 
 
 
 //Dependencies and Initial Setup
 
 const express = require('express');
 //Imports the Express framework for building web applications.
+
 const path = require('path');
 //Imports Node.js’s built-in path module to handle file and directory paths.
+
 const session = require('express-session');
 //Imports express-session for managing user sessions.
+
 const exphbs = require('express-handlebars');
 //Imports express-handlebars, a templating engine for dynamic HTML rendering.
+
 require('dotenv').config();
 //Loads environment variables from a .env file into process.env.
+
+
+
+
+
+
+
 
 console.log('Dependencies loaded successfully.');
 // Logs a message to indicate successful loading of dependencies.
@@ -99,12 +215,16 @@ console.log('Dependencies loaded successfully.');
 // Sequelize and Session Store
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Configures Sequelize as a session store for express-session.
+
 const sequelize = require('./config/connection'); // Adjust to your Sequelize instance
 // Imports the Sequelize database connection.
+
 const routes = require('./controllers');
 // Imports application routes.
+
 const helpers = require('./utils/helpers');
 // Imports utility/helper functions.
+
 
 // Express Application Setup
 const app = express();
@@ -118,6 +238,11 @@ console.log(`Application initialized. PORT set to ${PORT}`);
 // Handlebars setup
 const hbs = exphbs.create({ helpers });
 // Creates a Handlebars instance, including custom helper functions.
+
+
+
+
+
 app.engine('handlebars', hbs.engine);
 // Sets Handlebars as the template engine for the application.
 app.set('view engine', 'handlebars');
@@ -131,7 +256,7 @@ console.log('Handlebars setup complete.');
 const sess = {
   secret: process.env.SESSION_SECRET || 'SuperSecretKey', // Replace with a secure key in production
   cookie: {
-    maxAge: 86400000, // 24 hours in milliseconds
+    maxAge: 300000, // 24 hours in milliseconds
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production', // Ensure HTTPS in production
     sameSite: 'strict',
@@ -238,9 +363,15 @@ sequelize
 
 
 
-
+// =============================================================================================================USE THIS CODE FROM ABOVE ^
 
   //break
+
+
+
+
+
+
 
 
 

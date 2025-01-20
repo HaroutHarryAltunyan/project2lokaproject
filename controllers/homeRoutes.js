@@ -15,6 +15,7 @@ const navbarItems = [
   { name: 'Contact', href: '/contact' },
   { name: 'Profile', href: '/profile' },
   { name: 'Login', href: '/login' },
+  { name: 'Signup', href: '/signup' },
 ];
 console.log('Navbar items initialized.');
 
@@ -117,6 +118,20 @@ router.get('/login', (req, res) => {
     navbarItems,
   });
   console.log('Login page rendered.');
+});
+
+// Signup page
+router.get('/signup', (req, res) => {
+  console.log('GET request signup received.');
+  if (req.session.logged_in) {
+    console.log('User already logged in. Redirecting to /profile.');
+    return res.redirect('/profile');
+  }
+  res.render('signup', {
+    title: 'Signup',
+    navbarItems,
+  });
+  console.log('Signup page rendered.');
 });
 
 // Other pages

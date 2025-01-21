@@ -14,7 +14,7 @@ router.use('/api', apiRoutes);
 console.log('API routes mounted at /api.');
 
 // 404 handler if no routes match
-router.use((req, res) => {
+router.use("*", (req, res) => {
   console.log(`404 error for URL: ${req.originalUrl}`);
   res.status(404).render('404', { layout: 'main', title: 'Not Found' });
   console.log('404 page rendered.');

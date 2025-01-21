@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link rel="stylesheet" href="../public/css/style.css">
-    <script src="../public/js/profile.js"></script>
-  </head>
-  <body>
-  
-  <!-- Navbar -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{{logoLink}}">
-        <img src="{{logoSrc}}" alt="{{logoAlt}}" style="max-height: 70px;" class="py-2 px-2">
-      </a>
-    </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        {{#each navbarItems}}
-          <a href="{{this.href}}" class="navbar-item">{{this.name}}</a>
-        {{/each}}
-      </div>
-    </div>
-  </nav>
 
   <!-- Main content -->
   <section class="section">
@@ -68,10 +41,6 @@
       </div>
     </div>
   </section>
-
-  </body>
-</html>
-
 
 
 

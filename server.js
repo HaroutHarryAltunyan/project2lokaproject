@@ -247,7 +247,7 @@ app.engine('handlebars', hbs.engine);
 // Sets Handlebars as the template engine for the application.
 app.set('view engine', 'handlebars');
 // Specifies Handlebars as the default view engine.
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
 // Sets the directory for Handlebars view templates.
 console.log('Handlebars setup complete.');
 // Logs the completion of the Handlebars setup.
@@ -321,8 +321,10 @@ console.log('Test session route added.');
 // A test route for verifying session handling.
 
 // Test error handling
+
 app.get('/test-error', (req, res) => {
   throw new Error('This is a test error!');
+  res.send("Error: Testing Error");
 });
 console.log('Test error route added.');
 // A test route that intentionally throws an error to test error handling.
@@ -345,6 +347,7 @@ app.use((err, req, res, next) => {
   res.status(status).render('error', { status, message });
 });
 // Middleware to handle server errors and send a custom error response.
+
 
 // Start server
 sequelize

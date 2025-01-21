@@ -33,7 +33,7 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    
+    console.log("resoinse: ", response);
     if (response.ok) {
       document.location.replace('/profile');
     } else {

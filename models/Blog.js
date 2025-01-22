@@ -64,6 +64,25 @@ console.log('Blog model exported.');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const { Model, DataTypes } = require('sequelize');
 // const sequelize = require('../config/connection');
 

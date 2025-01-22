@@ -66,6 +66,22 @@ module.exports = Comment;
 console.log('Comment model exported.');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const { Model, DataTypes } = require('sequelize');
 // const sequelize = require('../config/connection');
 

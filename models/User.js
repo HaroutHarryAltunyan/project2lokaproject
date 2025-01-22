@@ -88,6 +88,30 @@ module.exports = User;
 console.log('User model exported.');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const { Model, DataTypes } = require('sequelize');
 // const bcrypt = require('bcrypt');
 // const sequelize = require('../config/connection');

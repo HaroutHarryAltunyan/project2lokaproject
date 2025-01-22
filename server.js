@@ -294,62 +294,6 @@ app.use(routes);
 console.log('Routes added.');
 // Logs the addition of routes.
 
-// Health check
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
-});
-console.log('Health check route added.');
-// A health check route to verify the server is running.
-
-// Test JSON parsing
-app.post('/test-json', (req, res) => {
-  console.log('Request body:', req.body);
-  res.json({ body: req.body });
-});
-console.log('Test JSON route added.');
-// A test route for parsing and returning JSON request bodies.
-
-// Test session handling
-app.get('/test-session', (req, res) => {
-  if (!req.session.views) {
-    req.session.views = 1;
-  } else {
-    req.session.views += 1;
-  }
-  res.send(`Session views: ${req.session.views}`);
-});
-console.log('Test session route added.');
-// A test route for verifying session handling.
-
-// Test error handling
-
-app.get('/test-error', (req, res) => {
-  throw new Error('This is a test error!');
-  res.send("Error: Testing Error");
-});
-console.log('Test error route added.');
-// A test route that intentionally throws an error to test error handling.
-
-// 404 handler
-app.use((req, res) => {
-  console.log(`404 error for URL: ${req.url}`);
-  res.status(404).render('404');
-});
-// Middleware to handle 404 errors (not found).
-
-// Error handler
-app.use((err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
-  console.error(`[${new Date().toISOString()}] Error occurred:`);
-  console.error(`Status: ${status}`);
-  console.error(`Message: ${message}`);
-  console.error(err.stack);
-  res.status(status).render('error', { status, message });
-});
-// Middleware to handle server errors and send a custom error response.
-
-
 // Start server
 sequelize
   .sync({ force: false })

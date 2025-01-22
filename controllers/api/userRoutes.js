@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
   try {
     console.log('Request to create new user received.');
 
-    const { email, name, password } = req.body;
+    const { name, email, password } = req.body;
 
     // Validate email and password
     if (!validator.isEmail(email)) {
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
     }
 
     // Create new user
-    const userData = await User.create({ email, name, password });
+    const userData = await User.create({ name, email, password });
     console.log('New user created:', { id: userData.id, email: userData.email });
 
     // Save session

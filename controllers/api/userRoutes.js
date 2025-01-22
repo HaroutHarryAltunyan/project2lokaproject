@@ -53,7 +53,9 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     console.error('Error creating new user:', err.message);
+    console.log(err)
     res.status(500).json({ message: 'Failed to create user. Please try again.' });
+
   }
 });
 
@@ -65,18 +67,18 @@ router.post('/login', loginLimiter, async (req, res) => {
     const { email, password } = req.body;
 
     if (!validator.isEmail(email) || !password) {
-      return res.status(400).json({ message: 'Invalid email or password.' });
+      return res.status(400).json({ message: '1 Invalid email or password.' });
     }
 
     const userData = await User.findOne({ where: { email } });
     if (!userData) {
-      return res.status(400).json({ message: 'Incorrect email or password.' });
+      return res.status(400).json({ message: '2 Incorrect email or password.' });
     }
 
     // Validate password
     const validPassword = await bcrypt.compare(password, userData.password);
     if (!validPassword) {
-      return res.status(400).json({ message: 'Incorrect email or password.' });
+      return res.status(400).json({ message: '3 Incorrect email or password.' });
     }
 
     // Save session

@@ -5,7 +5,7 @@ console.log('Router initialized.');
 
 // Navbar items
 const navbarItems = [
-  { name: 'Home', href: '/' },
+  { name: 'Homepage', href: '/' },
   { name: 'Documentation', href: '/documentation' },
   { name: 'Resources', href: '/resources' },
   { name: 'Petition', href: '/petition' },
@@ -143,6 +143,8 @@ const pages = [
   { path: '/volunteer', title: 'Volunteer' },
   { path: '/donate', title: 'Donate' },
   { path: '/contact', title: 'Contact' },
+  { path: '/homepage', title: 'Homepage' },
+
 ];
 
 pages.forEach((page) => {

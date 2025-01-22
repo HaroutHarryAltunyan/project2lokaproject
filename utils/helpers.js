@@ -1,7 +1,4 @@
-
-// add this later 
-
-module.exports = {
+  module.exports = {
   format_date: (date) => {
     const dateobj = new Date(date)
     const formattedDate = dateobj.toLocaleDateString();

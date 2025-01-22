@@ -5,7 +5,7 @@ console.log('Router initialized.');
 
 // Navbar items
 const navbarItems = [
-  { name: 'Homepage', href: '/' },
+  { name: 'Homepage', href: '/homepage' },
   { name: 'Documentation', href: '/documentation' },
   { name: 'Resources', href: '/resources' },
   { name: 'Petition', href: '/petition' },

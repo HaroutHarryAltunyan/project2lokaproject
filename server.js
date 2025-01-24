@@ -1,23 +1,42 @@
+// //Dependencies and Initial Setup
+
+
 // const express = require('express');
+// //Imports the Express framework for building web applications.
+
 // const path = require('path');
+// //Imports Node.js’s built-in path module to handle file and directory paths.
+
 // const session = require('express-session');
+// //Imports express-session for managing user sessions.
+
 // const exphbs = require('express-handlebars');
+// //Imports express-handlebars, a templating engine for dynamic HTML rendering.
+
 // require('dotenv').config();
+// //Loads environment variables from a .env file into process.env.
+
 // console.log('Dependencies loaded successfully.');
+// // Logs a message to indicate successful loading of dependencies.
 
+// // Sequelize and Session Store
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const sequelize = require('./config/connection'); // Adjust to your Sequelize instance
+// // Configures Sequelize as a session store for express-session.
 
+// const sequelize = require('./config/connection'); // Adjust to your Sequelize instance
+// // Imports the Sequelize database connection.
 
 // const routes = require('./controllers');
+// // Imports application routes.
+
 // const helpers = require('./utils/helpers');
+// // Imports utility/helper functions.
 
 
-
-
+// // Express Application Setup
 // const app = express();
 // // Initializes an Express application.
-// const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3002;////////////////////////////////////////////change this port
 // // Sets the port for the application (default: 3001).
 
 // console.log(`Application initialized. PORT set to ${PORT}`);
@@ -100,7 +119,14 @@
 
 
 
-  const path = require('path');
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////this is starterserver.js code below
+
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -111,7 +137,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -146,8 +172,6 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
 
 
 

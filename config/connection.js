@@ -46,6 +46,10 @@
 
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////this is starter connection.js code 
+
+
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
@@ -66,5 +70,3 @@ if (process.env.DB_URL) {
 }
 
 module.exports = sequelize;
-
-
